@@ -23,7 +23,7 @@ Currently on **Day 13** and going strong.
 | 10  | Student Management System | SQLite, CRUD, multi-file structure |
 | 11  | FastAPI Day 1 | REST API, GET routes, path parameters, Swagger UI |
 | 12  | FastAPI Notes API | Pydantic models, POST/PUT/DELETE, query parameters |
-| 13  | FastAPI SQLite API  | SQLAlchemy, real DB, Depends(), multi-file structure
+| 13  | FastAPI SQLite API | SQLAlchemy ORM, real DB persistence, Depends() sessions, response_model validation, keyword search & filters |
 
 ---
 
