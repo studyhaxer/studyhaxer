@@ -8,22 +8,38 @@ One project a day. Everything documented publicly.
 ## 🚀 The Challenge
 
 **#60DaysOfPython** — Started from zero, building one real project every single day.  
-Currently on **Day 13** and going strong.
+Currently on **Day 14** and going strong.
 
 ---
 
 ## 🛣️ Journey So Far
 
+| Phase | Days | What I Learned |
+|-------|------|----------------|
+| Python Core | 1–6 | Basics, CLI, file handling, OOP, JSON/CSV, logging, modular architecture |
+| OOP Deep Dive | 7–9 | Encapsulation, `@property`, inheritance, polymorphism |
+| Database | 10 | SQLite, CRUD, multi-file structure |
+| FastAPI | 11–13 | REST API, Pydantic, SQLAlchemy ORM, `Depends()`, search & filters |
+| **Relationships** | **14** | **One-to-Many, cascade delete, `joinedload`, nested Pydantic schemas** |
+| Auth | 15–20 | JWT, bcrypt, protected routes, testing, deployment |
+| Capstone | 21–60 | AI-Powered Educational Platform |
+
+<details>
+<summary>📋 Day-by-day breakdown</summary>
+
 | Day | Project | What I Learned |
 |-----|---------|----------------|
-| 1-2 | Student Grade Analyzer | Python basics, CLI, file handling |
-| 3-6 | Student Grade Analyzer v2-v7 | OOP, JSON/CSV, logging, validation, modular architecture |
-| 7-8 | Bank System | Encapsulation, @property, deposit/withdraw |
-| 9   | Library Management System | Inheritance, Polymorphism, base class design |
-| 10  | Student Management System | SQLite, CRUD, multi-file structure |
-| 11  | FastAPI Day 1 | REST API, GET routes, path parameters, Swagger UI |
-| 12  | FastAPI Notes API | Pydantic models, POST/PUT/DELETE, query parameters |
-| 13  | FastAPI SQLite API | SQLAlchemy ORM, real DB persistence, Depends() sessions, response_model validation, keyword search & filters |
+| 1–2 | Student Grade Analyzer | Python basics, CLI, file handling |
+| 3–6 | Student Grade Analyzer v2–v7 | OOP, JSON/CSV, logging, validation, modular architecture |
+| 7–8 | Bank System | Encapsulation, `@property`, deposit/withdraw |
+| 9 | Library Management System | Inheritance, polymorphism, base class design |
+| 10 | Student Management System | SQLite, CRUD, multi-file structure |
+| 11 | FastAPI Day 1 | REST API, GET routes, path parameters, Swagger UI |
+| 12 | FastAPI Notes API | Pydantic models, POST/PUT/DELETE, query parameters |
+| 13 | FastAPI SQLite API | SQLAlchemy ORM, real DB persistence, `Depends()`, `response_model`, keyword search & filters |
+| **14** | **User Course API** | **One-to-Many relationships, cascade delete, `joinedload`, nested schemas** |
+
+</details>
 
 ---
 
@@ -31,17 +47,20 @@ Currently on **Day 13** and going strong.
 
 - **Language:** Python 3
 - **Backend:** FastAPI, Uvicorn
-- **Database:** SQLite
-- **Concepts:** OOP, REST API, CRUD, Pydantic, File Handling, Logging
+- **Database:** SQLite, SQLAlchemy ORM
+- **Auth (upcoming):** JWT, bcrypt, python-jose, passlib
+- **Concepts:** OOP, REST API, CRUD, Pydantic v2, DB Relationships, File Handling, Logging
 
 ---
 
 ## 📌 Featured Projects
 
-- 🗒️ [FastAPI Notes API](https://github.com/studyhaxer/python-day12-fastapi-notes-api) — Full CRUD REST API with Pydantic models, search and filters
+- 🔗 [User Course API](https://github.com/studyhaxer/day14-user-course-api) — One-to-Many relationships, cascade delete, nested Pydantic schemas
+- 🗒️ [FastAPI SQLite API](https://github.com/studyhaxer/python-day13-fastapi-sqlite-api) — SQLAlchemy ORM, keyword search, filters, response_model
+- 🗒️ [FastAPI Notes API](https://github.com/studyhaxer/python-day12-fastapi-notes-api) — Full CRUD REST API with Pydantic models
 - 🎓 [Student Management System](https://github.com/studyhaxer/student-management-system-v1) — SQLite + Python CLI with full CRUD
-- 📚 [Library Management System](https://github.com/studyhaxer/library-management-system-v1) — OOP with Inheritance and Polymorphism
-- 🏦 [Bank System](https://github.com/studyhaxer/bank-system-v1) — OOP with @property and transaction history
+- 📚 [Library Management System](https://github.com/studyhaxer/library-management-system-v1) — OOP with inheritance and polymorphism
+- 🏦 [Bank System](https://github.com/studyhaxer/bank-system-v1) — OOP with `@property` and transaction history
 
 ---
 
