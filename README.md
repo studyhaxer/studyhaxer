@@ -8,7 +8,7 @@ One project a day. Everything documented publicly.
 ## 🚀 The Challenge
 
 **#60DaysOfPython** — Started from zero, building one real project every single day.  
-Currently on **Day 14** and going strong.
+Currently on **Day 15** and going strong.
 
 ---
 
@@ -20,8 +20,8 @@ Currently on **Day 14** and going strong.
 | OOP Deep Dive | 7–9 | Encapsulation, `@property`, inheritance, polymorphism |
 | Database | 10 | SQLite, CRUD, multi-file structure |
 | FastAPI | 11–13 | REST API, Pydantic, SQLAlchemy ORM, `Depends()`, search & filters |
-| **Relationships** | **14** | **One-to-Many, cascade delete, `joinedload`, nested Pydantic schemas** |
-| Auth | 15–20 | JWT, bcrypt, protected routes, testing, deployment |
+| **Relationships** | 14 | One-to-Many, cascade delete, `joinedload`, nested Pydantic schemas |
+| **Auth** | **15–20** | **Day 15 done: JWT (python-jose), bcrypt hashing, OAuth2PasswordBearer, protected routes via `Depends()`** |
 | Capstone | 21–60 | AI-Powered Educational Platform |
 
 <details>
@@ -37,7 +37,8 @@ Currently on **Day 14** and going strong.
 | 11 | FastAPI Day 1 | REST API, GET routes, path parameters, Swagger UI |
 | 12 | FastAPI Notes API | Pydantic models, POST/PUT/DELETE, query parameters |
 | 13 | FastAPI SQLite API | SQLAlchemy ORM, real DB persistence, `Depends()`, `response_model`, keyword search & filters |
-| **14** | **User Course API** | **One-to-Many relationships, cascade delete, `joinedload`, nested schemas** |
+| 14 | User Course API | One-to-Many relationships, cascade delete, `joinedload`, nested schemas |
+| **15** | **JWT Authentication API** | **JWT (python-jose), bcrypt password hashing, OAuth2PasswordBearer, protected routes via `Depends()`** |
 
 </details>
 
@@ -48,13 +49,14 @@ Currently on **Day 14** and going strong.
 - **Language:** Python 3
 - **Backend:** FastAPI, Uvicorn
 - **Database:** SQLite, SQLAlchemy ORM
-- **Auth (upcoming):** JWT, bcrypt, python-jose, passlib
+- **Auth:** JWT, bcrypt, python-jose, passlib
 - **Concepts:** OOP, REST API, CRUD, Pydantic v2, DB Relationships, File Handling, Logging
 
 ---
 
 ## 📌 Featured Projects
 
+- 🔐 [JWT Authentication API](https://github.com/studyhaxer/day15-jwt-auth-api) — JWT auth, bcrypt password hashing, protected routes with OAuth2
 - 🔗 [User Course API](https://github.com/studyhaxer/day14-user-course-api) — One-to-Many relationships, cascade delete, nested Pydantic schemas
 - 🗒️ [FastAPI SQLite API](https://github.com/studyhaxer/python-day13-fastapi-sqlite-api) — SQLAlchemy ORM, keyword search, filters, response_model
 - 🗒️ [FastAPI Notes API](https://github.com/studyhaxer/python-day12-fastapi-notes-api) — Full CRUD REST API with Pydantic models
