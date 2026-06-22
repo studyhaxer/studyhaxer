@@ -1,5 +1,6 @@
 # Hi, I'm Hafiz Atta Ur Rahman 👋
 
+🎓 M.Phil in Computer Science (Gold Medalist)  
 Former PHP & WordPress developer rebuilding from scratch with Python.  
 One project a day. Everything documented publicly.
 
