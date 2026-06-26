@@ -9,7 +9,7 @@ One project a day. Everything documented publicly.
 ## 🚀 The Challenge
 
 **#60DaysOfPython** — Started from zero, building one real project every single day.  
-Currently on **Day 22** — Course CRUD with teacher role and ownership guards. Capstone in full build mode.
+Currently on **Day 23** — building out the flagship capstone's core backend.
 
 🔗 **Live API (Day 19):** [day19-deployment-production.up.railway.app/docs](https://day19-deployment-production.up.railway.app/docs) — deployed FastAPI + Postgres, tested end-to-end against a real production database.
 
@@ -47,8 +47,9 @@ Currently on **Day 22** — Course CRUD with teacher role and ownership guards. 
 | 18 | FastAPI Testing + Cleanup | pytest suite with TestClient, conftest fixtures with autouse reset_db (clean DB per test), isolated test database, custom exception classes (ForbiddenException, NotFoundException), consistent permission-before-fetch pattern across endpoints, role-based test coverage (401 / 403 / 200 scenarios) |
 | 19 | Production Deployment | Swapped SQLite for managed Supabase Postgres; moved `SECRET_KEY` and `DATABASE_URL` fully into platform env vars; fixed Uvicorn start command for dynamic `$PORT` + `0.0.0.0` binding; deployed to Railway; verified full request lifecycle (register → login → protected routes) against the live database, not just that the server started |
 | **20** | **Capstone Kickoff — AI-Powered Educational Platform** | **Designed 4-table schema (`User`, `Course`, `Lesson`, `Enrollment`) with a proper many-to-many `Enrollment` bridge model, `UniqueConstraint` to prevent duplicate enrollments, `NOT NULL` foreign keys; Pydantic schemas with nested `List[LessonOut]`; resolved a production-grade Supabase IPv6/DNS issue by switching to the session pooler connection string; verified all tables live in Supabase and pushed to a dedicated capstone repo** |
-| **21** | **Auth Routes — Register / Login / JWT** | **Built `routers/` package with `auth.py` and `users.py`; implemented `POST /auth/register` (duplicate email check, bcrypt hash, `EmailStr` validation), `POST /auth/login` (OAuth2PasswordRequestForm, JWT token), `GET /users/me` (Bearer token → current user), `GET /users` (admin-only); `require_any_role()` variadic dependency factory for role guards; SECRET_KEY loaded from env with RuntimeError on missing production key** |
-| **22** | **Course CRUD — Teacher Role + Ownership Guards** | **Built `routers/courses.py` with full CRUD (POST, GET, GET/{id}, PUT, DELETE); teacher-only write guards via `require_any_role("teacher")`; ownership check (`course.owner_id != current_user.id` → 403); 404-before-403 pattern enforced; DELETE returns `Response(status_code=204)` correctly; `main.py` stays clean with zero route logic** |
+| **21** | **Capstone — Auth Routes (JWT)** | **Split routes into a `routers/` package using `APIRouter`; `POST /auth/register` with duplicate-email check and bcrypt hashing; `POST /auth/login` via `OAuth2PasswordRequestForm` (so Swagger's Authorize flow works end-to-end) issuing a JWT with `sub` as the user id; `GET /users/me`; `GET /users` admin-only via a `require_any_role` dependency guard; full register → login → /me → 403/401 smoke testing in `/docs`** |
+| **22** | **Capstone — Course CRUD** | **Full CRUD on `Course` (`POST/GET/PUT/DELETE /courses`); teacher-only creation; ownership validation on update/delete via `owner_id` so teachers can only modify their own courses; authenticated read access for all roles; consistent status codes (201/200/204/403/404) across every route** |
+| **23** | **Capstone — Lesson CRUD + Student Enrollment** | **Nested lesson routes under `/courses/{course_id}/lessons`, with ownership checked one level removed via `lesson.course.owner_id` (lessons have no `owner_id` of their own); `PUT`/`DELETE /lessons/{id}`; `Enrollment` bridge table wired up — `POST /enroll` catches the DB-level `UniqueConstraint` violation as an `IntegrityError`, rolls back the session, and returns a clean 400 instead of a 500; `GET /my-courses` resolves enrolled courses through the relationship rather than a second query** |
 
 </details>
 
@@ -61,10 +62,10 @@ Currently on **Day 22** — Course CRUD with teacher role and ownership guards. 
 - **Language:** Python 3
 - **Backend:** FastAPI, Uvicorn
 - **Database:** PostgreSQL (Supabase, production), SQLite (local dev), SQLAlchemy ORM
-- **Auth:** JWT, bcrypt, OAuth2PasswordBearer, EmailStr validation
+- **Auth:** JWT, bcrypt, python-jose, passlib
 - **Testing:** pytest, httpx, TestClient
 - **Deployment:** Railway, Supabase, environment-based secrets management
-- **Concepts:** OOP, REST API, CRUD, Pydantic v2, DB Relationships, Role-Based Access Control, Reusable Dependencies, Ownership Guards, Testing, Production Deployment, File Handling, Logging
+- **Concepts:** OOP, REST API, CRUD, Pydantic v2, DB Relationships, Role-Based Access Control, Reusable Dependencies, Testing, Production Deployment, File Handling, Logging
 
 ---
 
