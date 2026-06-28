@@ -9,11 +9,11 @@ One project a day. Everything documented publicly.
 ## 🚀 The Challenge
 
 **#60DaysOfPython** — Started from zero, building one real project every single day.  
-Currently on **Day 25** — full pytest suite, 28 tests, 0 failures.
+Currently on **Day 26** — React frontend started, Register page live and connected to backend.
 
 🔗 **Live API (Day 19):** [day19-deployment-production.up.railway.app/docs](https://day19-deployment-production.up.railway.app/docs) — deployed FastAPI + Postgres, tested end-to-end against a real production database.
 
-🎓 **Capstone in progress:** [AI-Powered Educational Platform](https://github.com/studyhaxer/capstone-edu-platform) — FastAPI + PostgreSQL + JWT auth + OpenAI-generated lesson summaries & quizzes + React frontend, deploying to **usachunian.com**. Full Day 20–36 roadmap in the repo README.
+🎓 **Capstone in progress:** [AI-Powered Educational Platform](https://github.com/studyhaxer/capstone-edu-platform) — FastAPI + PostgreSQL + JWT auth + Groq-generated lesson summaries + React frontend, deploying to **usachunian.com**. Full Day 20–33 roadmap in the repo README.
 
 ---
 
@@ -31,7 +31,8 @@ Currently on **Day 25** — full pytest suite, 28 tests, 0 failures.
 | Deployment | 19 | Production deployment — managed Postgres (Supabase), env-based secrets, Railway hosting, dynamic port binding, end-to-end verification against a live database |
 | AI Integration | 24 | Groq API (`llama-3.3-70b-versatile`), lesson summarizer endpoint, prompt engineering |
 | Testing | 25 | pytest suite (28 tests), TestClient, role-based test coverage, ownership 403s, duplicate 400s |
-| **Capstone (in progress)** | **20–36** | **AI-Powered Educational Platform — FastAPI + PostgreSQL + JWT auth, Groq lesson summaries, React frontend, deploying to usachunian.com. [Full roadmap →](https://github.com/studyhaxer/capstone-edu-platform)** |
+| React Frontend | 26 | Vite + React setup, Register page, axios client, backend integration |
+| **Capstone (in progress)** | **20–33** | **AI-Powered Educational Platform — FastAPI + PostgreSQL + JWT auth, Groq lesson summaries, React frontend, deploying to usachunian.com. [Full roadmap →](https://github.com/studyhaxer/capstone-edu-platform)** |
 <details>
 <summary>📋 Day-by-day breakdown</summary>
 
@@ -52,10 +53,11 @@ Currently on **Day 25** — full pytest suite, 28 tests, 0 failures.
 | **22** | **Capstone — Course CRUD** | **Full CRUD on `Course` (`POST/GET/PUT/DELETE /courses`); teacher-only creation; ownership validation on update/delete via `owner_id` so teachers can only modify their own courses; authenticated read access for all roles; consistent status codes (201/200/204/403/404) across every route** |
 | **24** | **Capstone — AI Lesson Summarizer** | **Integrated Groq API (`llama-3.3-70b-versatile`); `POST /lessons/{id}/summarize` fetches lesson content, sends it to Groq with a structured prompt, and returns a clean summary; `.env`-based API key management; role-gated to authenticated users** |
 | **25** | **Capstone — pytest Test Suite** | **28 automated tests across 4 files (auth, courses, lessons, enrollments); `conftest.py` with `client`, `teacher_token`, `student_token`, `teacher2_token` fixtures; tests cover happy paths, duplicate 400s, ownership 403s, role 403s, and unauthenticated 401s; 0 failures** | **Nested lesson routes under `/courses/{course_id}/lessons`, with ownership checked one level removed via `lesson.course.owner_id` (lessons have no `owner_id` of their own); `PUT`/`DELETE /lessons/{id}`; `Enrollment` bridge table wired up — `POST /enroll` catches the DB-level `UniqueConstraint` violation as an `IntegrityError`, rolls back the session, and returns a clean 400 instead of a 500; `GET /my-courses` resolves enrolled courses through the relationship rather than a second query** |
+| **26** | **Capstone — React Register Page** | **Vite + React project scaffolded; `axiosClient.js` with base URL config; `Navbar.jsx` with React Router links; `Register.jsx` form with Full Name, Email, Password, Role (student/teacher); POST `/auth/register` connected; success state with green banner; role-based redirect groundwork in place** |
 
 </details>
 
-> 📋 Days 20–36 of the capstone follow a detailed phase-by-phase roadmap (auth → CRUD → AI features → React frontend → deployment) — see the [capstone repo README](https://github.com/studyhaxer/capstone-edu-platform) for the full breakdown.
+> 📋 Days 20–33 of the capstone follow a detailed phase-by-phase roadmap (auth → CRUD → AI features → React frontend → deployment) — see the [capstone repo README](https://github.com/studyhaxer/capstone-edu-platform) for the full breakdown.
 
 ---
 
@@ -68,13 +70,13 @@ Currently on **Day 25** — full pytest suite, 28 tests, 0 failures.
 - **Testing:** pytest, httpx, TestClient
 - **Deployment:** Railway, Supabase, environment-based secrets management
 - **AI:** Groq API (`llama-3.3-70b-versatile`), prompt engineering
-- **Concepts:** OOP, REST API, CRUD, Pydantic v2, DB Relationships, Role-Based Access Control, Reusable Dependencies, Testing, Production Deployment, File Handling, Logging
+- **Frontend:** React, Vite, Axios, React Router
 
 ---
 
 ## 📌 Featured Projects
 
-- 🎓 [**AI-Powered Educational Platform**](https://github.com/studyhaxer/capstone-edu-platform) — *60-day capstone, in progress.* FastAPI + PostgreSQL + JWT auth, OpenAI lesson summaries & MCQ quiz generation, React frontend, deploying to usachunian.com
+- 🎓 [**AI-Powered Educational Platform**](https://github.com/studyhaxer/capstone-edu-platform) — *60-day capstone, in progress.* FastAPI + PostgreSQL + JWT auth, Groq lesson summaries, React frontend, deploying to usachunian.com
 - 🚀 [Production Deployment](https://github.com/studyhaxer/day19-deployment) — FastAPI live on Railway, Supabase Postgres, env-based secrets, full request lifecycle verified end-to-end
 - 🧪 [FastAPI Testing + Cleanup](https://github.com/studyhaxer/day18-testing-cleanup) — pytest suite, TestClient, isolated test DB, custom exception classes, role-based test coverage
 - 🔁 [Reusable Auth & Role Dependencies](https://github.com/studyhaxer/day17-reusable-auth-dependencies) — JWT auth and RBAC fully moved into reusable dependency functions, multi-role routes, dependency composition
