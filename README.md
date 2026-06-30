@@ -9,7 +9,7 @@ One project a day. Everything documented publicly.
 ## 🚀 The Challenge
 
 **#60DaysOfPython** — Started from zero, building one real project every single day.  
-Currently on **Day 27** — Login page live, JWT stored, role-based redirect to teacher/student dashboards.
+Currently on **Day 28** — Teacher Dashboard live: owner-scoped courses, add lessons, server-side pagination via SQLAlchemy.
 
 🔗 **Live API (Day 19):** [day19-deployment-production.up.railway.app/docs](https://day19-deployment-production.up.railway.app/docs) — deployed FastAPI + Postgres, tested end-to-end against a real production database.
 
@@ -31,8 +31,8 @@ Currently on **Day 27** — Login page live, JWT stored, role-based redirect to 
 | Deployment | 19 | Production deployment — managed Postgres (Supabase), env-based secrets, Railway hosting, dynamic port binding, end-to-end verification against a live database |
 | AI Integration | 24 | Groq API (`llama-3.3-70b-versatile`), lesson summarizer endpoint, prompt engineering |
 | Testing | 25 | pytest suite (28 tests), TestClient, role-based test coverage, ownership 403s, duplicate 400s |
-| React Frontend | 26–27 | Vite + React setup, Register page, axios client, Login page, JWT storage, role-based redirect |
-| **Capstone (in progress)** | **20–33** | **AI-Powered Educational Platform — FastAPI + PostgreSQL + JWT auth, Groq lesson summaries, React frontend (Register + Login done), deploying to usachunian.com. [Full roadmap →](https://github.com/studyhaxer/capstone-edu-platform)** |
+| React Frontend | 26–28 | Vite + React setup, Register page, axios client, Login page, JWT storage, role-based redirect, Teacher Dashboard (owner-scoped courses, add lessons, server-side pagination) |
+| **Capstone (in progress)** | **20–33** | **AI-Powered Educational Platform — FastAPI + PostgreSQL + JWT auth, Groq lesson summaries, React frontend (Register + Login + Teacher Dashboard done), deploying to usachunian.com. [Full roadmap →](https://github.com/studyhaxer/capstone-edu-platform)** |
 <details>
 <summary>📋 Day-by-day breakdown</summary>
 
@@ -55,6 +55,7 @@ Currently on **Day 27** — Login page live, JWT stored, role-based redirect to 
 | **25** | **Capstone — pytest Test Suite** | **28 automated tests across 4 files (auth, courses, lessons, enrollments); `conftest.py` with `client`, `teacher_token`, `student_token`, `teacher2_token` fixtures; tests cover happy paths, duplicate 400s, ownership 403s, role 403s, and unauthenticated 401s; 0 failures** | **Nested lesson routes under `/courses/{course_id}/lessons`, with ownership checked one level removed via `lesson.course.owner_id` (lessons have no `owner_id` of their own); `PUT`/`DELETE /lessons/{id}`; `Enrollment` bridge table wired up — `POST /enroll` catches the DB-level `UniqueConstraint` violation as an `IntegrityError`, rolls back the session, and returns a clean 400 instead of a 500; `GET /my-courses` resolves enrolled courses through the relationship rather than a second query** |
 | **26** | **Capstone — React Register Page** | **Vite + React project scaffolded; `axiosClient.js` with base URL config; `Navbar.jsx` with React Router links; `Register.jsx` form with Full Name, Email, Password, Role (student/teacher); POST `/auth/register` connected; success state with green banner; role-based redirect groundwork in place** |
 | **27** | **Capstone — Login Page + JWT Auth Flow** | **`Login.jsx` form wired to POST `/auth/login`; JWT token stored in `localStorage`; decoded role from token payload; role-based redirect — teachers → Teacher Dashboard, students → Student Dashboard; error state for invalid credentials; `axiosClient.js` auth header picks up stored token automatically** |
+| **28** | **Capstone — Teacher Dashboard** | **`TeacherDashboard.jsx` with role guard (non-teachers redirected to `/login`); `GET /courses` scoped to `owner_id` so teachers only see their own courses; Create Course form (`POST /courses`); course cards with togglable Add Lesson form (`POST /courses/{id}/lessons`); server-side pagination via SQLAlchemy `offset/limit` — frontend sends `?skip=&limit=10` per page** |
 
 </details>
 
